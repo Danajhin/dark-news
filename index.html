@@ -12,15 +12,20 @@
 <body id="body">
     <header id="body-header">
         <nav id="body-header-nav">
-            <div id="menu">
+            <div id="menu" onclick="menu()">
                 <img id="body-header-nav-icon" src="imgs/menuicon.png" alt="">
                 <p>MENU</p>
             </div>
-            <a hidden id="body-header-nav-item" href="#">Home</a>
-            <a hidden id="body-header-nav-item" href="#">Sobre Nós</a>
-            <a hidden id="body-header-nav-item" href="#">Contato</a>
+            <div id="menu-itens">
+                <a id="body-header-nav-item" href="#">Home</a>
+                <a id="body-header-nav-item" href="#">Sobre Nós</a>
+                <a id="body-header-nav-item" href="#">Contato</a>
+                <a onclick="menuleave()" id="body-header-nav-item" href="#"><<<</a>
+
+            </div>
+            
         </nav>
-        <img id="body-header-logo" src="logo.png" alt="Logo" >
+        <img id="body-header-logo" src="logo.png" alt="Logo" onmouseover="change()" onmouseleave="back()">
         <input id="body-header-search" placeholder="PESQUISAR..." type="search">
     
 
@@ -50,9 +55,24 @@
 
     
     <script>
-     
-     document.getElementById('body-footer-copy').inn
+        function change() {
+            document.getElementById('body-header-logo').src="logohover.png"
 
+        }
+        
+        function back() {
+            document.getElementById('body-header-logo').src="logo.png"
+        }
+
+        function menu() {
+            document.getElementById('menu-itens').style.display = "flex"
+            document.getElementById('menu').style.display = "none"
+        }
+
+        function menuleave() {
+            document.getElementById('menu-itens').style.display = "none"
+            document.getElementById('menu').style.display = "flex"
+        }
     </script>
 
 </body>
