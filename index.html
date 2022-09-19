@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script src="jquery-3.6.1.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,28 +13,37 @@
 <body id="body">
     <header id="body-header">
         <nav id="body-header-nav">
-            <div id="menu" onclick="menu()">
-                <img id="body-header-nav-icon" src="imgs/menuicon.png" alt="">
-                <p>MENU</p>
+            
+            <div id="menu">
+
+                <img onclick="menu()" id="body-header-nav-icon" src="imgs/menuicon.png" alt="">
+                <p onclick="menu()">MENU</p>
+              
             </div>
             <div id="menu-itens">
                 <a id="body-header-nav-item" href="#">Home</a>
                 <a id="body-header-nav-item" href="#">Sobre Nós</a>
                 <a id="body-header-nav-item" href="#">Contato</a>
-                <a onclick="menuleave()" id="body-header-nav-item" href="#"><<<</a>
-
             </div>
-            
         </nav>
+          
+            
+        
         <img id="body-header-logo" src="logo.png" alt="Logo" onmouseover="change()" onmouseleave="back()">
         <form id="menupesquisa" action="" method="post">
             <img id="search" src="imgs/search.png" alt="">
             <input id="place" type="search" name="q" placeholder="Pesquisar...">
         </form>
-        <input hidden id="body-header-search" placeholder="PESQUISAR..." type="search">
+       
+    
+
+        
+            
+        
     
 
     </header>
+    
     <main id="body-main">
         <!-- <div id="body-main-destaque">
             <h1 id="body-main-destaque-item">NASA FAZ NOVA DESCOBERTA</h1>
@@ -41,21 +51,21 @@
             <h1 id="body-main-destaque-item">VAZAMENTO DE DADOS NA DEEP WEB</h1>
             <img src="imgs/2.jpg" alt="Destaque 2">
         </div> -->
-        <div id="body-main-post">
+        <div class="body-main-post">
             <h3 id="body-main-post-titulo">Criptomoedas</h2>
             <h1 id="body-main-post-titulo">Nasa descobre forma de explorar Marte através de criptomoedas</h1>
             <img id="body-main-post-img" src="imgs/1.jpg" alt="Post 1">
-            <p id="body-main-post-txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, praesentium, architecto ut itaque expedita nulla dicta similique laboriosam distinctio error eaque nesciunt accusamus. Nemo dicta reprehenderit adipisci! Blanditiis, assumenda nulla!</p>
+            <p class="body-main-post-txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, praesentium, architecto ut itaque expedita nulla dicta similique laboriosam distinctio error eaque nesciunt accusamus. Nemo dicta reprehenderit adipisci! Blanditiis, assumenda nulla!</p>
             <button id="continue">CONTINUE LENDO</button>
             
 
         </div>
         
-        <div id="body-main-post">
+        <div class="body-main-post">
             <h3 id="body-main-post-titulo">Deep Web</h2>
             <h1 id="body-main-post-titulo">Interpol prende <br>Cybercriminosos</h1>
             <img id="body-main-post-img" src="imgs/2.jpg" alt="Post 1">
-            <p id="body-main-post-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur labore ducimus fugiat harum dignissimos placeat. Totam laboriosam dolore minima eos obcaecati voluptates blanditiis sit, architecto iure. Rerum reprehenderit impedit labore?</p>
+            <p class="body-main-post-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur labore ducimus fugiat harum dignissimos placeat. Totam laboriosam dolore minima eos obcaecati voluptates blanditiis sit, architecto iure. Rerum reprehenderit impedit labore?</p>
             <button id="continue">CONTINUE LENDO</button>
             
 
@@ -66,11 +76,16 @@
         
         <img id="body-footer-logo" src="logo.png" alt="logo">
         <p id="body-footer-copy">© Copyright Dark News</p>
+        <button id="darkmode" onclick="darkmode()"></button>
 
     </footer>
 
     
     <script>
+
+       
+
+
         function change() {
             document.getElementById('body-header-logo').src="logohover.png"
 
@@ -81,17 +96,33 @@
         }
 
         function menu() {
-            document.getElementById('menu-itens').style.display = "flex"
-            document.getElementById('menu').style.display = "none"
+            var x = document.getElementById("menu-itens");
+            if (x.style.display === "none") {
+                x.style.display = "flex";
+            } else {
+                x.style.display = "none";
+            }
+           
         }
 
-        function menuleave() {
-            document.getElementById('menu-itens').style.display = "none"
-            document.getElementById('menu').style.display = "flex"
+        function darkmode(){
+            var botao = document.getElementById("darkmode");
+            if (botao.style.backgroundColor === "black") {
+                $("body").css("backgroundColor", "white");
+                $("#darkmode").css("backgroundColor", "white");
+                $(".body-main-post").css("backgroundColor", "white");
+                $(".body-main-post-txt").css("color", "black");
+            } else {
+                $("body").css("backgroundColor", "black");
+                $("#darkmode").css("backgroundColor", "black");
+                $(".body-main-post").css("backgroundColor", "black");
+                $(".body-main-post-txt").css("color", "white");
+                
+            }
         }
 
-      
-        
+
+          
     </script>
 
 </body>
